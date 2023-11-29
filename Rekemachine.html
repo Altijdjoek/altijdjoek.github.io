@@ -6,21 +6,53 @@
   <title>Calculator</title>
   <link rel="stylesheet" type="text/css" href="opmaak.css">
   <style>
-    /* Add any additional styles for your calculator here */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f2f2f2;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #3498db;
+      padding: 10px;
+      text-align: center;
+      color: white;
+    }
+
+    nav {
+      background-color: #333;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
     .calculator {
       width: 300px;
-      margin: 50px auto;
+      margin: 20px auto;
       border: 1px solid #ccc;
-      padding: 10px;
+      background-color: #fff;
       border-radius: 5px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 10px;
     }
 
     input[type="text"] {
-      width: 100%;
+      width: calc(100% - 20px);
       box-sizing: border-box;
       margin-bottom: 10px;
-      padding: 5px;
+      padding: 10px;
+      font-size: 18px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      outline: none;
     }
 
     button {
@@ -28,10 +60,31 @@
       height: 48px;
       margin: 5px;
       font-size: 18px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      outline: none;
+    }
+
+    button:hover {
+      background-color: #2980b9;
     }
   </style>
 </head>
 <body>
+
+  <header>
+    <h1>Calculator</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="solarsystem.html">Solarsystem</a>
+    <a href="Rekemachine.html">Rekenmachine</a>
+    <a href="amazing.facts.html">Amazing Facts</a>
+  </nav>
 
   <div class="calculator">
     <input type="text" id="display" disabled>
