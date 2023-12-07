@@ -72,6 +72,15 @@
       padding-bottom: 10px;
     }
 
+    ol {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 20px;
+    }
+
     input {
       padding: 12px;
       margin-right: 12px;
@@ -136,10 +145,25 @@
           <p>Wat wordt geregeld in de logische laag?</p>
           <input type="text" id="answerInput3">
         </li>
+        <!-- Additional quiz questions -->
+        <li>
+          <p>Wat is de belangrijkste functie van de toepassingslaag?</p>
+          <input type="text" id="answerInput4">
+        </li>
+        <li>
+          <p>Noem een voorbeeld van een component in de fysieke laag.</p>
+          <input type="text" id="answerInput5">
+        </li>
+        <li>
+          <p>Waarom is de logische laag belangrijk in een informatiesysteem?</p>
+          <input type="text" id="answerInput6">
+        </li>
       </ol>
       <button onclick="checkAnswers()">Controleer antwoorden</button>
       <div id="answerFeedback"></div>
     </div>
+
+    <!-- Additional content or sections can be added here -->
 
     <script>
       const layers = document.getElementById('layers');
@@ -147,6 +171,9 @@
       const answerInput1 = document.getElementById('answerInput1');
       const answerInput2 = document.getElementById('answerInput2');
       const answerInput3 = document.getElementById('answerInput3');
+      const answerInput4 = document.getElementById('answerInput4'); // Additional input
+      const answerInput5 = document.getElementById('answerInput5'); // Additional input
+      const answerInput6 = document.getElementById('answerInput6'); // Additional input
       const answerFeedback = document.getElementById('answerFeedback');
 
       layers.addEventListener('click', (event) => {
@@ -163,10 +190,16 @@
         const userAnswer1 = answerInput1.value.toLowerCase();
         const userAnswer2 = answerInput2.value.toLowerCase();
         const userAnswer3 = answerInput3.value.toLowerCase();
+        const userAnswer4 = answerInput4.value.toLowerCase(); // Additional answer
+        const userAnswer5 = answerInput5.value.toLowerCase(); // Additional answer
+        const userAnswer6 = answerInput6.value.toLowerCase(); // Additional answer
 
         const correctAnswer1 = 'toepassingslaag';
         const correctAnswer2 = 'hardwarecomponenten';
         const correctAnswer3 = 'algoritmen en processen';
+        const correctAnswer4 = 'gebruikersinteractie'; // Additional correct answer
+        const correctAnswer5 = 'server'; // Additional correct answer
+        const correctAnswer6 = 'reguleren functionaliteit en gegevensverwerking'; // Additional correct answer
 
         let feedback = '';
 
@@ -186,6 +219,25 @@
           feedback += 'Vraag 3: Goed antwoord!<br>';
         } else {
           feedback += 'Vraag 3: Fout antwoord. Probeer opnieuw!<br>';
+        }
+
+        // Additional checks for new questions
+        if (userAnswer4 === correctAnswer4) {
+          feedback += 'Vraag 4: Goed antwoord!<br>';
+        } else {
+          feedback += 'Vraag 4: Fout antwoord. Probeer opnieuw!<br>';
+        }
+
+        if (userAnswer5 === correctAnswer5) {
+          feedback += 'Vraag 5: Goed antwoord!<br>';
+        } else {
+          feedback += 'Vraag 5: Fout antwoord. Probeer opnieuw!<br>';
+        }
+
+        if (userAnswer6 === correctAnswer6) {
+          feedback += 'Vraag 6: Goed antwoord!<br>';
+        } else {
+          feedback += 'Vraag 6: Fout antwoord. Probeer opnieuw!<br>';
         }
 
         answerFeedback.innerHTML = feedback;
