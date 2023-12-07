@@ -102,42 +102,56 @@
 <body>
   <div class="container">
     <h1>Drie Lagen Model</h1>
-    <p>Uitleg over het toepassingslaag, fysieke laag en logische laag. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non diam nisl. Curabitur eu velit eget quam commodo mattis et vel ex. Vestibulum eu arcu sit amet quam rhoncus venenatis a a metus. Praesent sit amet urna vel lacus volutpat cursus eget at odio. Integer id tristique odio.</p>
+    <p>Het drie lagen model is een concept in de informatica dat de structuur van een informatiesysteem verdeelt in drie hoofdcategorieën of lagen: de toepassingslaag, fysieke laag en logische laag. Hieronder volgt een gedetailleerde uitleg van elke laag:</p>
 
     <div id="layers">
       <div class="layer" style="background-color: #3498db;">
         <h2>Toepassingslaag</h2>
-        <p>De laag waar gebruikers direct mee interacteren.</p>
+        <p>De toepassingslaag is de bovenste laag van het drie lagen model. Het is de laag waar gebruikers direct mee interacteren. Dit omvat gebruikersinterfaces, applicaties en diensten die gericht zijn op het oplossen van specifieke problemen voor gebruikers.</p>
       </div>
       <div class="layer" style="background-color: #e74c3c;">
         <h2>Fysieke Laag</h2>
-        <p>De hardwarecomponenten van het systeem.</p>
+        <p>De fysieke laag vormt de basis van het drie lagen model en omvat de hardwarecomponenten van het systeem. Hierbij kan gedacht worden aan servers, databases, netwerkapparatuur en andere fysieke infrastructuur die nodig is om applicaties te ondersteunen.</p>
       </div>
       <div class="layer" style="background-color: #2ecc71;">
         <h2>Logische Laag</h2>
-        <p>De algoritmen en processen die plaatsvinden.</p>
+        <p>De logische laag bevindt zich tussen de toepassingslaag en de fysieke laag. Het omvat de algoritmen, processen en logica die plaatsvinden om de functionaliteit van de toepassingslaag te ondersteunen. Hier wordt de verwerking van gegevens en de communicatie met de fysieke laag geregeld.</p>
       </div>
     </div>
 
     <div id="output"></div>
 
     <div id="quiz">
-      <h2>Quizvraag</h2>
-      <p>Welke laag is verantwoordelijk voor de interactie met gebruikers?</p>
-      <input type="text" id="answerInput">
-      <button onclick="checkAnswer()">Controleer antwoord</button>
-      <p id="answerFeedback"></p>
+      <h2>Quizvragen</h2>
+      <ol>
+        <li>
+          <p>Welke laag is verantwoordelijk voor de interactie met gebruikers?</p>
+          <input type="text" id="answerInput1">
+        </li>
+        <li>
+          <p>Wat omvat de fysieke laag van het drie lagen model?</p>
+          <input type="text" id="answerInput2">
+        </li>
+        <li>
+          <p>Wat wordt geregeld in de logische laag?</p>
+          <input type="text" id="answerInput3">
+        </li>
+      </ol>
+      <button onclick="checkAnswers()">Controleer antwoorden</button>
+      <div id="answerFeedback"></div>
     </div>
 
     <script>
       const layers = document.getElementById('layers');
       const output = document.getElementById('output');
-      const answerInput = document.getElementById('answerInput');
+      const answerInput1 = document.getElementById('answerInput1');
+      const answerInput2 = document.getElementById('answerInput2');
+      const answerInput3 = document.getElementById('answerInput3');
       const answerFeedback = document.getElementById('answerFeedback');
 
       layers.addEventListener('click', (event) => {
         if (event.target.classList.contains('layer')) {
-          output.textContent = `Geselecteerde laag: ${event.target.querySelector('h2').textContent}`;
+          output.innerHTML = `<h2>Geselecteerde laag: ${event.target.querySelector('h2').textContent}</h2>${event.target.querySelector('p').innerHTML}`;
           layers.querySelectorAll('.layer').forEach(layer => {
             layer.style.backgroundColor = ''; // Reset background color for all layers
           });
@@ -145,15 +159,36 @@
         }
       });
 
-      function checkAnswer() {
-        const userAnswer = answerInput.value.toLowerCase();
-        const correctAnswer = 'toepassingslaag';
+      function checkAnswers() {
+        const userAnswer1 = answerInput1.value.toLowerCase();
+        const userAnswer2 = answerInput2.value.toLowerCase();
+        const userAnswer3 = answerInput3.value.toLowerCase();
 
-        if (userAnswer === correctAnswer) {
-          answerFeedback.textContent = 'Goed antwoord! De toepassingslaag is inderdaad verantwoordelijk voor gebruikersinteractie.';
+        const correctAnswer1 = 'toepassingslaag';
+        const correctAnswer2 = 'hardwarecomponenten';
+        const correctAnswer3 = 'algoritmen en processen';
+
+        let feedback = '';
+
+        if (userAnswer1 === correctAnswer1) {
+          feedback += 'Vraag 1: Goed antwoord!<br>';
         } else {
-          answerFeedback.textContent = 'Fout antwoord. Probeer opnieuw!';
+          feedback += 'Vraag 1: Fout antwoord. Probeer opnieuw!<br>';
         }
+
+        if (userAnswer2 === correctAnswer2) {
+          feedback += 'Vraag 2: Goed antwoord!<br>';
+        } else {
+          feedback += 'Vraag 2: Fout antwoord. Probeer opnieuw!<br>';
+        }
+
+        if (userAnswer3 === correctAnswer3) {
+          feedback += 'Vraag 3: Goed antwoord!<br>';
+        } else {
+          feedback += 'Vraag 3: Fout antwoord. Probeer opnieuw!<br>';
+        }
+
+        answerFeedback.innerHTML = feedback;
       }
     </script>
   </div>
